@@ -3,32 +3,35 @@
   <h5 class="card-header">レシピ詳細</h5>
   <div class="card-body">
     <div class="row recipe-detail">
-      <div class="col-sm-4"><img src="<%= @recipe.image_url %>" alt=""></div>
+      <div class="col-sm-4">
+        <!-- RubyCode recipeの画像 -->
+      </div>
       <div class="col-sm-8">
-        <h5 class="card-title"><%= @recipe.title %></h5>
-        <p class="card-text"><%= @recipe.description %></p>
-        <%= link_to "編集", edit_recipe_path(@recipe), class: "btn btn-primary" %>
-        <%= link_to "工程を追加", new_recipe_step_path(@recipe), class: "btn btn-primary"%>
-        <% if @recipe.published? %>
-          <%= link_to "非公開", recipe_unpublish_path(@recipe), method: :post, class: "btn btn-secondary"%>
-        <% else %>
-          <%= link_to "公開", recipe_publish_path(@recipe), method: :post, class: "btn btn-primary"%>
-        <% end %>
+        <h5 class="card-title">
+          <!-- RubyCode recipeのタイトル表示 -->
+        </h5>
+        <p class="card-text">
+          <!-- RubyCode recipeの詳細表示 -->
+        </p>
+        <!-- RubyCode recipe編集画面へ遷移 -->
+        <!-- RubyCode recipeのstep追加画面へ遷移 -->
+        <!-- RubyCode recipeが公開されていれば、非公開にするボタンを表示 -->
+        <!-- RubyCode recipeが公開されていなければ、公開するURLを叩く -->
       </div>
     </div>
     <div class="recipe-show-steps list-group list-group-flush">
-      <% @recipe.steps.each_with_index do |step, i| %>
+      <!-- RubyCode recipeのstepsだけ繰り返す -->
         <div class="list-group-item step-item">
           <div class="row">
             <div class="col">
-              <%= i+1 %>. <%= step.description %>
+              <!-- RubyCode stepの詳細を表示 -->
             </div>
             <div class="col-sm-3 to-edit">
-              <a href="<%= edit_recipe_step_path(@recipe, step) %>" class="btn-primary btn">編集</a>
+              <!-- RubyCode stepの編集画面へ遷移 -->
             </div>
           </div>
         </div>
-      <% end %>
+      <!-- RubyCode 繰り返しの終わり -->
     </div>
   </div>
 </div>

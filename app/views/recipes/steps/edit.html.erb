@@ -1,12 +1,12 @@
 <div class="edit-step-form form">
-  <%= form_with model: @step, url: recipe_step_path(@step) do |form| %>
+  <!-- RubyCode step form生成 -->
     <div class="form-group">
-      <%= form.label :description, "タイトル" %>
-      <%= form.text_area :description, class: "form-control", placeholder: "例) オクラの胡麻和え" %>
+      <!-- RubyCode recipe description label-->
+      <!-- RubyCode recipe description textarea-->
     </div>
     <div class="button-area">
-      <%= form.submit "更新", class: "btn btn-primary" %>
-      <%= link_to "削除", recipe_step_path(@step), method: :delete, class: "btn btn-secondary" %>
+      <!-- RubyCode step form送信ボタン-->
+      <!-- RubyCode step 削除ボタン-->
     </div>
-  <% end %>
+  <!-- RubyCode step formの閉じ -->
 </div>

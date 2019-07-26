@@ -33,8 +33,6 @@
       <div class="button-area">
         <div class="flex-button">
           <button id="submit" class="btn btn-primary" disabled>工程を追加</button>
-        </div>
-        <div class="flex-button">
           <%= link_to "公開", recipe_publish_path(@recipe), method: :post, class: "btn btn-primary"%>
         </div>
       </div>
@@ -42,6 +40,7 @@
   </div>
 </div>
 
+<!-- ここより下は読めなくて大丈夫です。 -->
 <script type="text/javascript">
   $(".active").on('keyup paste', function(e) {
     const value = e.target.value;

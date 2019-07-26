@@ -1,24 +1,20 @@
 <div class="edit-recipe-form form">
-  <%= form_with model: @recipe do |form| %>
+  <!-- RubyCode form生成 -->
     <div class="form-group">
-      <%= form.label :title, "タイトル" %>
-      <%= form.text_field :title, class: "form-control", placeholder: "例) オクラの胡麻和え" %>
+      <!-- RubyCode recipe title label-->
+      <!-- RubyCode recipe title text field-->
     </div>
     <div class="form-group">
-      <%= form.label :description, "キャッチコピー" %>
-      <%= form.text_area :description, class: "form-control", placeholder: "例) とっても美味しい", rows: 4 %>
+      <!-- RubyCode recipe description label-->
+      <!-- RubyCode recipe description textarea-->
     </div>
     <div class="form-group">
-      <%= form.label :image_url, "画像URL" %>
-      <%= form.text_field :image_url, class: "form-control", placeholder: "https://img.com" %>
+      <!-- RubyCode recipe 画像URL label-->
+      <!-- RubyCode recipe 画像URL text field-->
     </div>
     <div class="button-area">
-      <div class="flex-button">
-        <%= form.submit "更新", class: "btn btn-primary" %>
-      </div>
-      <div class="flex-button">
-        <%= link_to "削除", recipe_path(@recipe), method: :delete, class: "btn btn-secondary" %>
-      </div>
+      <!-- RubyCode recipe form送信ボタン-->
+      <!-- RubyCode recipe削除ボタン-->
     </div>
-  <% end %>
+  <!-- RubyCode recipe formの閉じ -->
 </div>
