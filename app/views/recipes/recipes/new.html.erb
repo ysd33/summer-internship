@@ -1,0 +1,17 @@
+<div class="recipe-form form">
+  <%= form_with model: @recipe do |form| %>
+    <div class="form-group">
+      <%= form.label :title, "タイトル" %>
+      <%= form.text_field :title, class: "form-control", placeholder: "例) オクラの胡麻和え" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :description, "キャッチコピー" %>
+      <%= form.text_area :description, class: "form-control", placeholder: "例) とっても美味しい", rows: 4 %>
+    </div>
+    <div class="form-group">
+      <%= form.label :image_url, "画像URL" %>
+      <%= form.text_field :image_url, class: "form-control", placeholder: "https://img.com" %>
+    </div>
+    <%= form.submit "作成", class: "btn btn-primary" %>
+  <% end %>
+</div>

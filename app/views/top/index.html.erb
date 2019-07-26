@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="recipe-list">
+    <% @recipes.each do |recipe| %>
+      <%= render partial: 'components/recipe', locals: { recipe: recipe } %>
+    <% end %>
+  </div>
+</div>
