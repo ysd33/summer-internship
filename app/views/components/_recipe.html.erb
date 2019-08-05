@@ -1,6 +1,8 @@
 <div class="card recipe-card">
   <!-- recipeの画像を表示 -->
-	<%= image_tag image_path(recipe.image_url), class: "recipe-img" %>
+<%#= image_tag image_path(recipe.image_url), class: "recipe-img" %>
+
+	 <img src="<%= recipe.image_url %>" alt="" class="recipe-img">
   <div class="card-body">
     <p class="card-title">
       <!-- recipeのタイトルを表示 -->
