@@ -1,0 +1,80 @@
+<div class="container">
+  <%= form_with model: @recipe do |f| %>
+    <div class="form-group">
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title, class: "form-control", readonly: true %>
+      <%= f.label :description, "キャッチコピー" %>
+      <%= f.text_area :description, class: "form-control", readonly: true %>
+    </div>
+  <% end %>
+  <div class="step-form">
+    <form>
+      <div id="description-fields">
+        <h4>工程</h4>
+        <% @recipe.steps.each do |step| %>
+          <div class="step-description-field">
+            <div class="form-group">
+              <%= text_area :step, :description,
+                value: step.description,
+                class: "form-control step-description-value",
+                disabled: true
+              %>
+            </div>
+          </div>
+        <% end %>
+        <div class="step-description-field">
+          <div class="form-group">
+            <%= text_area :step, :description,
+              class: "form-control step-description-value active"
+            %>
+          </div>
+        </div>
+      </div>
+      <div class="button-area">
+        <div class="flex-button">
+          <button id="submit" class="btn btn-primary" disabled>工程を追加</button>
+          <%#= link_to "公開", recipe_publish_path(@recipe), method: :post, class: "btn btn-primary"%>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ここより下は読めなくて大丈夫です。 -->
+<script type="text/javascript">
+  $(".active").on('keyup paste', function(e) {
+    const value = e.target.value;
+    if(value.length > 0) {
+      $("#submit").prop("disabled", false)
+    } else {
+      $("#submit").prop("disabled", true)
+    }
+  });
+  $('#submit').on('click', function(e) {
+    e.preventDefault();
+    const description = $(".step-description-value").eq(-1).val();
+    $.post("<%== recipe_steps_path(@recipe) %>", 'step[description]='+description)
+      .done( function(data) {
+        const field = $(".step-description-field").eq(-1).clone();
+
+        $(".step-description-value").eq(-1).prop("disabled", true);
+        $(".active").off('keyup paste')
+        $(".step-description-value").eq(-1).removeClass("active");
+
+        field.find(".step-description-value").val("");
+        $("#description-fields").append(field);
+
+        field.on('keyup paste', function(e) {
+          const value = e.target.value;
+          if(value.length > 0) {
+            $("#submit").prop("disabled", false)
+          } else {
+            $("#submit").prop("disabled", true)
+          }
+        });
+
+        $("#submit").prop("disabled", true)
+      })
+      .fail( function(err) { console.log(err) } )
+  });
+</script>

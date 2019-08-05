@@ -1,0 +1,28 @@
+<div class="recipe-form form">
+  <!-- RubyCode recipe form生成 -->
+  <%= form_with model: @recipe do |f| %>
+    <div class="form-group title">
+      <!-- RubyCode recipe title label-->
+	  <%= f.label :title, "タイトル" %>
+      <!-- RubyCode recipe title text field-->
+	  <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group description">
+      <!-- RubyCode recipe description label-->
+	  <%= f.label :description, "詳細" %>
+      <!-- RubyCode recipe description textarea-->
+
+	  <!-- class->fromcontrol のハッシュを渡している -->
+
+	  <%= f.text_area :description,  class: "form-control" %>
+    </div>
+    <div class="form-group image_url">
+      <!-- RubyCode recipe 画像URL label-->
+	  <%= f.label :image_url, "画像URL" %>
+      <!-- RubyCode recipe 画像URL text field-->
+	  <%= f.text_field :image_url, class: "form-control" %>
+    </div>
+	<%= f.submit "作成", class: "btn btn-primary" %>
+  <!-- RubyCode recipe formの閉じ -->
+  <% end %>
+</div>
